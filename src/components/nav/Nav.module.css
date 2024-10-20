@@ -1,0 +1,22 @@
+.navContainer {
+    background: linear-gradient(to right, #A3D8FF, #BEFFF7 );
+    height: 80px;
+    min-width: 333px;
+}
+
+.navContainer {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+}
+
+.navContainer span {
+    color: #111;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.logo {
+    width: 50px;
+}

@@ -1,0 +1,40 @@
+.listContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.cardContainer {
+    align-items: center;
+    border: 5px solid #eee;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-block: 30px;
+    transition: border-color .3s;
+    width: 180px;
+    height:150px;
+    border-radius: 10px
+}
+
+.cardContainer img {
+    width: 7rem;
+}
+
+.cardContainer span {
+    background-color: #eee;
+    text-decoration: none;
+    color:#111;
+    font-size: 1rem;
+    font-weight: 700;
+    justify-self: baseline;
+    padding-block: 5px;
+    text-align: center;
+    width: 100%;
+}
+
+.listContainer a {
+    text-decoration: none;
+}
