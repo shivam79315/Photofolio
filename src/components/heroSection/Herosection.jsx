@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styles from './Herosection.module.css';
 import Albumform from '../albumForm/Albumform';
 import Albumlist from '../albumList/Albumlist';
+import ImagesList from '../imagesList/ImagesList';
 
 const Herosection = () => {
  
@@ -22,6 +23,7 @@ const Herosection = () => {
             </div>
             <div className={styles.bodySection}>
             <Albumlist />
+            < ImagesList />
             </div>
         </div>
     </>

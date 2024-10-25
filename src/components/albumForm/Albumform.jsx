@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import styles from "./Albumform.module.css";
 import { AlbumContext } from "../../context/Albumcontext";
+import { toast } from "react-toastify";
 
 const Albumform = () => {
   const [inputData, setInputData] = useState("");
@@ -13,6 +14,7 @@ const Albumform = () => {
     e.preventDefault();
     addAlbum(inputData); 
     setInputData("");
+    {toast.success("Album create Successfully")}
   };
 
   const clearInput = () => {
