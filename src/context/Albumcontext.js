@@ -6,7 +6,9 @@ export const AlbumContext = createContext();
 export const AlbumProvider = ({ children }) => {
   const [albums, setAlbums] = useState([
     { id: 1, title: "test1", images: ['https://www.google.com/url?sa=i&url=https%3A%2F%2Fheidmann.com%2F%3Fpage_id%3D15&psig=AOvVaw0ZYQWQrcfYpy2COd5K6kiC&ust=1729867485358000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCKCu8qeqp4kDFQAAAAAdAAAAABAE'] },
-    { id: 2, title: "test2", images: [] },
+    { id: 2, title: "test2", images: [{
+      
+    }] },
     { id: 3, title: "Family Adventures", images: [] },
     { id: 4, title: "Summer Memories", images: [] },
     { id: 5, title: "Moments of Joy", images: [] },

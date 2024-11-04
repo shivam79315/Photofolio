@@ -14,14 +14,22 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
 .head span {
+    text-align: justify;
+    min-width: 140px;
     color: #111;
-    font-size: 1.4rem;
+    font-size: 2rem;
     font-weight: 700;
 }
 
+.head .createAddBtn {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
 
 
 

@@ -8,6 +8,7 @@ const getAlbumRoute = (album) => {
   return album.title.replace(/\s+/g, '').toLowerCase(); 
 };
 
+
 const ImagesList = () => {
   const { albums } = useContext(AlbumContext);
 
