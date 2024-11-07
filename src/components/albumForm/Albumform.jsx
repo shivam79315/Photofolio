@@ -8,13 +8,13 @@ import { collection, addDoc } from 'firebase/firestore';
 const Albumform = () => {
   const [inputData, setInputData] = useState("");
   // const 
-  const { addAlbum } = useContext(AlbumContext);
+  // const { addAlbum } = useContext(AlbumContext);
 //   const context = useContext(AlbumContext);
 // console.log(context);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    addAlbum(inputData); 
+    // addAlbum(inputData); 
     setInputData("");
     const docRef = await addDoc(collection(db, "gallery"), {
       albumName: inputData,
@@ -34,6 +34,7 @@ const Albumform = () => {
       <form onSubmit={handleSubmit}>
         <input
           className={styles.input}
+          placeholder="Your album name..."
           name="inputData"
           type="text"
           value={inputData}

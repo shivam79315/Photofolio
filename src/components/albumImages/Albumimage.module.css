@@ -1,5 +1,5 @@
 .formContainer {
-    background-color: #f4f4f4;
+    background: linear-gradient(to right, #A3D8FF, #BEFFF7);
     border-radius: 10px;
     box-shadow: 0 2px 8px 0 rgba(99, 99, 99, .2);
     display: flex;

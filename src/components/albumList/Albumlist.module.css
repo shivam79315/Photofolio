@@ -7,7 +7,7 @@
 
 .cardContainer {
     align-items: center;
-    border: 5px solid #eee;
+    border: 5px solid #B6FFFA;
     cursor: pointer;
     display: flex;
     flex-direction: column;
@@ -16,7 +16,11 @@
     transition: border-color .3s;
     width: 180px;
     height:150px;
-    border-radius: 10px
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+    &:hover{
+        transform: scale(1.1);
+    }
 }
 
 .cardContainer img {
@@ -24,14 +28,15 @@
 }
 
 .cardContainer span {
-    background-color: #eee;
+    background: linear-gradient(to right, #A3D8FF, #BEFFF7 );
     text-decoration: none;
-    color:#111;
+    color: cornflowerblue;
     font-size: 1rem;
     font-weight: 700;
     justify-self: baseline;
     padding-block: 5px;
     text-align: center;
+    border-radius: 0px 0px 5px 5px;
     width: 100%;
 }
 
