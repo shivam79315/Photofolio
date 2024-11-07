@@ -11,15 +11,15 @@ const getAlbumRoute = (albumName) => {
 }
 
 const Albumlist = () => {
-  const [albums, setAlbums] = useState([]); // State to store albums from Firestore
+  const [albums, setAlbums] = useState([]); 
 
   useEffect(() => {
     if (albums.length === 0) {
       async function fetchCollectionData() {
         try {
           const querySnapshot = await getDocs(collection(db, "gallery"));
-          const albumsData = querySnapshot.docs.map(doc => doc.data()); // Collect data into an array
-          setAlbums(albumsData); // Update state with the album data
+          const albumsData = querySnapshot.docs.map(doc => ( {id: doc.id, ...doc.data()})); 
+          setAlbums(albumsData); 
         } catch (error) {
           console.error("Error fetching data: ", error);
         }
@@ -27,16 +27,16 @@ const Albumlist = () => {
 
       fetchCollectionData();
     }
-  }, []); // Empty dependency array to run the effect once when the component mounts
+  }, []); 
 
   return (
     <div className={styles.listContainer}>
       {albums.length > 0 ? (
         albums.map((album, index) => (
-          <Link to={`/${getAlbumRoute(album.albumName)}/images`} key={index}>
+          <Link to={`/${album.id}`} key={index}>
             <div className={styles.cardContainer}>
               <img src={imageSvg} alt="" />
-              <span>{album.albumName}</span> {/* Use data.albumName here */}
+              <span>{album.albumName}</span> 
             </div>
           </Link>
         ))

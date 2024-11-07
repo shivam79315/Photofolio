@@ -8,18 +8,18 @@ import Albumimage from "./components/albumImages/Albumimage";
 
 function App() {
   return (
-    <AlbumProvider>
+    // <AlbumProvider>
       <Router>
         <div>
           <Nav />
           <Routes>
             <Route path="/" element={<Herosection />} />
             <Route path="/albums" element={<Albumlist />} /> 
-            <Route path="/:albumName/images" element={<Albumimage />} />
+            <Route path="/:albumId" element={<Albumimage />} />
           </Routes>
         </div>
       </Router>
-    </AlbumProvider>
+
   );
 }
 

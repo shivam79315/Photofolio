@@ -23,7 +23,6 @@ const Herosection = () => {
             </div>
             <div className={styles.bodySection}>
             <Albumlist />
-            < ImagesList />
             </div>
         </div>
     </>

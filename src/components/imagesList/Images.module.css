@@ -1,0 +1,109 @@
+.listContainer {
+    height: auto;
+    padding: 20px;
+    margin: 0 40px 40px 40px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    box-shadow: 0 2px 8px 0 rgba(99, 99, 99, .2);
+}
+
+.imageContainer {
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    margin-block: 30px;
+    transition: border-color 0.3s, transform 0.3s ease-in-out;
+}
+
+.image {
+    width: 180px;
+    height: 180px;
+    background-size: cover;
+    border-radius: 10px;
+}
+
+.imageContainer:hover {
+    transform: scale(1.1);
+}
+
+/* Make buttons visible when hovering over the image container */
+.imageContainer:hover .editBtn,
+.imageContainer:hover .deleteBtn {
+    display: block;
+}
+
+/* Edit Button Styling */
+.editBtn {
+    display: none;
+    position: absolute;
+    top: 2px;
+    right: 32px;
+    width: 28px;
+    height: 28px;
+    background: url('../../assets/logo/editBtn.svg') no-repeat center center;
+    background-size: contain;
+    border: none;
+    cursor: pointer;
+}
+
+/* Delete Button Styling */
+.deleteBtn {
+    display: none;
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    width: 28px;
+    height: 28px;
+    background: url('../../assets/logo/deleteBtn.svg') no-repeat center center;
+    background-size: contain;
+    border: none;
+    cursor: pointer;
+}
+
+.confirmationBox {
+    position: fixed;
+    top: 45%;
+    left: 25%;
+    right: 25%;
+    bottom: 36%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #FBFBFB;
+    box-shadow: 0 2px 8px 0 rgba(99, 99, 99, .2);
+    padding:20px;
+    z-index: 100;
+    border-radius: 25px;
+  }
+
+  .btnContainer {
+    display: flex;
+    gap:10px;
+  }
+  
+  .confirmationBox p {
+    color: #FC4100;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  
+  .confirmBtn, .cancelBtn {
+    background-color: #FC4100; /* Red color */
+    color: white;
+    font-weight: 600;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 0 10px;
+    border-radius: 5px;
+  }
+  
+  .cancelBtn {
+    background-color: #4caf50; /* Green color */
+  }
