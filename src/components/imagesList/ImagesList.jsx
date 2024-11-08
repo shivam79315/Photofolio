@@ -70,7 +70,7 @@ const ImagesList = ({ settingImageId }) => {
     <div className={styles.listContainer}>
       {isLoading ? (
         <div className={styles.spinnerContainer}>
-          <Spinner size={40} spinnerColor={"#A5DBFE"} spinnerWidth={2} visible={true} />
+          <Spinner size={40} color={"#A5DBFE"} visible={true} />
         </div>
       ) :
       
