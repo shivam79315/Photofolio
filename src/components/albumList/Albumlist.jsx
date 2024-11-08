@@ -27,7 +27,6 @@ const Albumlist = () => {
               ...doc.data(),
             }));
             setAlbums(albumsData);
-            console.log(albumsData);
           });
           return unsubscribe;
         } catch (error) {
