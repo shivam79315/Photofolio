@@ -19,8 +19,8 @@ const Herosection = () => {
 
     // To handle when an album edit button is clicked
     const handleEdit = (albumId) => {
-        setIsCreate(false);  // Set to edit mode
-        setCurrentAlbumId(albumId);  // Set the albumId of the album to edit
+        setIsCreate(false);  
+        setCurrentAlbumId(albumId);  
     };
 
     return (
