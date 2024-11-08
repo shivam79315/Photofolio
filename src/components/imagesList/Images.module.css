@@ -2,6 +2,7 @@
     height: auto;
     border-radius: 20px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 30px;
     box-shadow: 0 2px 8px 0 rgba(99, 99, 99, .2);
