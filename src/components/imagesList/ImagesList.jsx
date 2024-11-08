@@ -5,12 +5,14 @@ import { toast } from "react-toastify";
 import { collection, deleteDoc, doc, onSnapshot } from 'firebase/firestore';
 import { db } from "../../firebaseInit";
 import imageSvg from '../../assets/logo/image-svg.svg';
+import Spinner from "react-spinner-material";
 
 const ImagesList = ({ settingImageId }) => {
   const { albumId } = useParams();
   const [allImages, setAllImages] = useState([]);
   const [isConfirming, setIsConfirming] = useState(false);
   const [imageToDelete, setImageToDelete] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchImages = () => {
@@ -18,7 +20,6 @@ const ImagesList = ({ settingImageId }) => {
         const albumRef = doc(db, "gallery", albumId);
         const imagesCollectionRef = collection(albumRef, "Images");
 
-        // Use onSnapshot to listen for real-time updates
         const unsubscribe = onSnapshot(imagesCollectionRef, (imagesSnapshot) => {
           const imagesList = imagesSnapshot.docs.flatMap((doc) => 
             Object.entries(doc.data())
@@ -26,50 +27,55 @@ const ImagesList = ({ settingImageId }) => {
               .map(([, value]) => ({ id: doc.id, image: value }))
           );
           setAllImages(imagesList);
+          setIsLoading(false);
         });
 
-        // Clean up the listener on component unmount
         return unsubscribe;
       } catch (error) {
         console.error("Error fetching images:", error);
+        setIsLoading(false);
       }
     };
 
     const unsubscribe = fetchImages();
 
-    // Clean up subscription on component unmount
     return () => unsubscribe && unsubscribe();
   }, [albumId]);
 
   // Combined delete and confirmation handler
   const handleDelete = async (imageId) => {
     if (isConfirming) {
-      // If the confirmation dialog is open, proceed with deletion
       try {
         const imageDocRef = doc(db, "gallery", albumId, "Images", imageId);
         await deleteDoc(imageDocRef); 
         toast.success("Image deleted successfully!");
-        setIsConfirming(false); // Close the confirmation box after deletion
+        setIsConfirming(false); 
         setImageToDelete(null);
       } catch (error) {
         console.error("Error deleting image: ", error);
         toast.error("Error deleting image!");
       }
     } else {
-      // If confirmation dialog is not open, open it for the selected image
       setImageToDelete(imageId);
       setIsConfirming(true);
     }
   };
 
   const handleCancelDelete = () => {
-    setIsConfirming(false); // Close the confirmation box
-    setImageToDelete(null); // Reset the imageToDelete
+    setIsConfirming(false); 
+    setImageToDelete(null); 
   };
 
   return (
     <div className={styles.listContainer}>
-      {allImages.length > 0 ? (
+      {isLoading ? (
+        <div className={styles.spinnerContainer}>
+          <Spinner size={40} spinnerColor={"#A5DBFE"} spinnerWidth={2} visible={true} />
+        </div>
+      ) :
+      
+      (
+        allImages.length > 0 ? (
         allImages.map((url, index) => (
           <div key={index} className={styles.imageContainer}>
             <img className={styles.image} src={url.image || imageSvg} alt={`Image ${index + 1}`} />
@@ -79,7 +85,10 @@ const ImagesList = ({ settingImageId }) => {
         ))
       ) : (
         <span>Add your images here</span>
-      )}
+      )
+      )
+      
+      }
 
       {/* Confirmation Box */}
       {isConfirming && (

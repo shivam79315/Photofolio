@@ -6,7 +6,7 @@ import ImagesList from "../imagesList/ImagesList";
 import { toast } from "react-toastify";
 import { db } from "../../firebaseInit";
 import { useParams } from "react-router-dom";
-import { collection, doc, getDoc, deleteDoc, setDoc } from 'firebase/firestore';
+import { collection, doc, deleteDoc, setDoc } from 'firebase/firestore';
 
 const Albumimage = () => {
   const [inputData, setInputData] = useState("");
@@ -16,6 +16,9 @@ const Albumimage = () => {
   const { albumId } = useParams();
 
   const handleSubmit = async (e) => {
+
+
+    
     e.preventDefault();
   
     try {
@@ -24,12 +27,10 @@ const Albumimage = () => {
 
       // If editing an existing image, delete the previous image first
       if (imageId) {
-        // Delete the previous image document
         await deleteDoc(doc(imagesCollectionRef, imageId));
         console.log(`Deleted image with ID: ${imageId}`);
       }
 
-      // Prepare the new image data
       const newImageData = {
         imageName: inputData, 
         imageUrl: inputUrl,   

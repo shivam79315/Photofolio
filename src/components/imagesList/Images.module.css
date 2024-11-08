@@ -29,13 +29,11 @@
     transform: scale(1.1);
 }
 
-/* Make buttons visible when hovering over the image container */
 .imageContainer:hover .editBtn,
 .imageContainer:hover .deleteBtn {
     display: block;
 }
 
-/* Edit Button Styling */
 .editBtn {
     display: none;
     position: absolute;
@@ -49,7 +47,6 @@
     cursor: pointer;
 }
 
-/* Delete Button Styling */
 .deleteBtn {
     display: none;
     position: absolute;
@@ -93,7 +90,7 @@
   }
   
   .confirmBtn, .cancelBtn {
-    background-color: #FC4100; /* Red color */
+    background-color: #FC4100; 
     color: white;
     font-weight: 600;
     padding: 10px 20px;
@@ -105,5 +102,5 @@
   }
   
   .cancelBtn {
-    background-color: #4caf50; /* Green color */
+    background-color: #4caf50;
   }
