@@ -10,12 +10,13 @@
     border: 5px solid #B6FFFA;
     cursor: pointer;
     display: flex;
+    position: relative;
     flex-direction: column;
     justify-content: flex-end;
     margin-block: 30px;
     transition: border-color .3s;
-    width: 180px;
-    height:150px;
+    width: 160px;
+    height:140px;
     border-radius: 10px;
     transition: transform 0.3s ease-in-out;
     &:hover{
@@ -24,14 +25,24 @@
 }
 
 .cardContainer img {
-    width: 7rem;
+    width: 6.2rem;
 }
 
-.cardContainer span {
+.listContainer a
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 100%;
+
+}
+
+.albumTitle {
     background: linear-gradient(to right, #A3D8FF, #BEFFF7 );
     text-decoration: none;
     color: cornflowerblue;
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 700;
     justify-self: baseline;
     padding-block: 5px;
@@ -43,3 +54,123 @@
 .listContainer a {
     text-decoration: none;
 }
+
+.cardContainer:hover .editBtn,
+.cardContainer:hover .deleteBtn {
+    display: block;
+}
+
+.editBtn {
+    display: none;
+    position: absolute;
+    top: 2px;
+    right: 32px;
+    width: 28px;
+    height: 28px;
+    background: url('../../assets/logo/editBtn.svg') no-repeat center center;
+    background-size: contain;
+    border: none;
+    cursor: pointer;
+}
+
+.deleteBtn {
+    display: none;
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    width: 28px;
+    height: 28px;
+    background: url('../../assets/logo/deleteBtn.svg') no-repeat center center;
+    background-size: contain;
+    border: none;
+    cursor: pointer;
+}
+
+.confirmationBox {
+  position: fixed;
+  top: 40%;
+  background: linear-gradient(to right, #A3D8FF, #BEFFF7);
+  left: 15%;
+  min-width: 380px;
+  right: 15%;
+  bottom: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 8px 0 rgba(99, 99, 99, .2);
+  padding: 20px;
+  z-index: 100;
+  border-radius: 25px;
+  }
+
+  .btnContainer {
+    display: flex;
+  }
+  
+  .confirmationBox p {
+    color: #FC4100;
+    font-size: 18px;
+    font-weight: 650;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  .editLine{
+    color: #6495ED !important;
+  }
+
+  .albumNameInput {
+    width: 80%;
+    max-width: 280px;
+    text-align: center;
+    color: rgb(36, 35, 42);
+    font-size: 16px;
+    margin-bottom: 10px;
+    line-height: 20px;
+    min-height: 32px;
+    border-radius: 4px;
+    padding: 8px 16px;
+    border: 2px solid transparent;
+    box-shadow: rgb(0 0 0 / 12%) 0px 1px 3px, rgb(0 0 0 / 24%) 0px 1px 2px;
+    background: rgb(251, 251, 251);
+    transition: all 0.1s ease 0s;
+    :focus{
+        border: 2px solid rgb(124, 138, 255);
+    }
+  }
+
+  .confirmBtn, .cancelBtn {
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 0 10px;
+    border-radius: 5px;
+    height: 40px;
+    width: 40px;
+  }
+
+  .confirmBtn {
+    background-image: url(../../assets/logo/yes.svg);
+    border-radius: 50px;
+    background-position: center;
+  }
+  
+  .cancelBtn {
+    background-image: url(../../assets/logo/cross.svg);
+    border-radius: 50px;
+    background-position: center;
+  }
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; 
+  }
