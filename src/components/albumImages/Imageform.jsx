@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "./Albumimage.module.css";
+import styles from "./Imageform.module.css";
 import backArrow from "../../assets/logo/backArrow.svg";
 import { Link } from "react-router-dom";
 import ImagesList from "../imagesList/ImagesList";

@@ -2,13 +2,10 @@ import React, { useState } from 'react';
 import styles from './Herosection.module.css';
 import Albumform from '../albumForm/Albumform';
 import Albumlist from '../albumList/Albumlist';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigating to edit page
 
 const Herosection = () => {
-    const [isCreate, setIsCreate] = useState(true); // Track if it's create or edit mode
-    const [currentAlbumId, setCurrentAlbumId] = useState(null); // To store albumId for editing
-    const navigate = useNavigate(); // To programmatically navigate
-
+    const [isCreate, setIsCreate] = useState(true); 
+    const [currentAlbumId, setCurrentAlbumId] = useState(null);
     const toggleBtn = () => {
         if (isCreate) {
             // If it's create mode, we set currentAlbumId to null
