@@ -32,7 +32,8 @@
 }
 
 .imageContainer:hover .editBtn,
-.imageContainer:hover .deleteBtn {
+.imageContainer:hover .deleteBtn,
+.imageContainer:hover .downloadBtn {
     display: block;
 }
 
@@ -44,6 +45,19 @@
     width: 28px;
     height: 28px;
     background: url('../../assets/logo/editBtn.svg') no-repeat center center;
+    background-size: contain;
+    border: none;
+    cursor: pointer;
+}
+
+.downloadBtn {
+    display: none;
+    position: absolute;
+    top: 2px;
+    right: 62px;
+    width: 28px;
+    height: 28px;
+    background: url('../../assets/logo/download.svg') no-repeat center center;
     background-size: contain;
     border: none;
     cursor: pointer;
