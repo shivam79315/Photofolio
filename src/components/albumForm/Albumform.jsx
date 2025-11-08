@@ -15,7 +15,7 @@ const Albumform = () => {
       createdOn : new Date()
     });
     console.log("Document written with ID: ", docRef.id);
-    {toast.success("Album created Successfully")}
+    toast.success("Album created Successfully")
   };
 
   const clearInput = () => {
