@@ -7,7 +7,7 @@ import { db } from "../../firebaseInit";
 import imageSvg from "../../assets/logo/image-svg.svg";
 import Spinner from "react-spinner-material";
 
-const ImagesList = ({ settingImageId }) => {
+const ImagesList = ({ settingImageId, settingInputData, settingImageUrl }) => {
   const { albumId } = useParams();
   const [allImages, setAllImages] = useState([]);
   const [isConfirming, setIsConfirming] = useState(false);
@@ -23,12 +23,17 @@ const ImagesList = ({ settingImageId }) => {
         const unsubscribe = onSnapshot(
           imagesCollectionRef,
           (imagesSnapshot) => {
-            const imagesList = imagesSnapshot.docs.flatMap((doc) =>
-              Object.entries(doc.data())
-                .filter(([key]) => key === "imageUrl")
-                .map(([, value]) => ({ id: doc.id, image: value }))
-            );
+            const imagesList = imagesSnapshot.docs.map((doc) => {
+            const data = doc.data();
+              return {
+                id: doc.id,
+                imageUrl: data.imageUrl,
+                imageName: data.imageName,
+              };
+            });
+
             setAllImages(imagesList);
+            console.log(allImages)
             setIsLoading(false);
           }
         );
@@ -100,13 +105,16 @@ const ImagesList = ({ settingImageId }) => {
           <div key={index} className={styles.imageContainer}>
             <img
               className={styles.image}
-              src={url.image || imageSvg}
-              alt={`Image ${index + 1}`}
+              src={url.imageUrl || imageSvg}
+              alt={url.imageName}
             />
+            <span className={styles.title}>{url.imageName}</span>
             <button
               className={styles.editBtn}
               onClick={() => {
                 settingImageId(url.id);
+                settingInputData(url.imageName);
+                settingImageUrl(url.imageUrl)
               }}
             ></button>
             <button

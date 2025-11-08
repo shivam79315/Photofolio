@@ -1,5 +1,5 @@
 import "./App.css";
-import Herosection from "./components/heroSection/Herosection";
+import Herosection from "./pages/HeroPage";
 import Nav from "./components/nav/Nav";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Albumimage from "./components/albumImages/Imageform"; 

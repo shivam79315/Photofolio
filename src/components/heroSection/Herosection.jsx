@@ -23,11 +23,7 @@ const Herosection = () => {
     return (
         <>
             {/* Pass the currentAlbumId if we are editing */}
-            {isCreate ? (
-                <Albumform albumId={currentAlbumId} />
-            ) : (
-                <Albumform albumId={currentAlbumId} />
-            )}
+            <Albumform albumId={isCreate ? null : currentAlbumId} />
 
             <div className={styles.heroSection}>
                 <div className={styles.head}>
@@ -35,9 +31,7 @@ const Herosection = () => {
                     <button
                         className={styles.createAddBtn}
                         onClick={toggleBtn}
-                    >
-                        {isCreate ? 'Create Album' : 'Add Album'}
-                    </button>
+                    >Create Album</button>
                 </div>
                 <div className={styles.bodySection}>
                     <Albumlist onEdit={handleEdit} />

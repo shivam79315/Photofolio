@@ -81,7 +81,7 @@ const Albumimage = () => {
         </div>
       </div>
 
-      <ImagesList settingImageId={setImageId} />
+      <ImagesList settingImageId={setImageId} settingInputData={setInputData} settingImageUrl={setInputUrl} />
     </>
   );
 };

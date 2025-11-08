@@ -88,12 +88,11 @@
 
 .confirmationBox {
   position: fixed;
-  top: 40%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   background: linear-gradient(to right, #A3D8FF, #BEFFF7);
-  left: 15%;
   min-width: 380px;
-  right: 15%;
-  bottom: 40%;
   display: flex;
   flex-direction: column;
   justify-content: center;
