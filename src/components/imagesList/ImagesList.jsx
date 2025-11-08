@@ -48,7 +48,7 @@ const ImagesList = ({ settingImageId, settingInputData, settingImageUrl }) => {
     const unsubscribe = fetchImages();
 
     return () => unsubscribe && unsubscribe();
-  }, [albumId]);
+  }, [albumId, allImages]);
 
   // image download
   const handleDownload = async (imageUrl, filename) => {
